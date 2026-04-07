@@ -1,18 +1,13 @@
 {
 	"nodes":[
-		{"id":"zone-wiki-pages-1744033999","type":"group","x":-400,"y":320,"width":1000,"height":840,"color":"2","label":"Wiki Pages"},
+		{"id":"zone-wiki-pages-1744033999","type":"group","x":-400,"y":320,"width":1000,"height":320,"color":"2","label":"Wiki Pages"},
 		{"id":"zone-default","type":"group","x":-400,"y":-140,"width":800,"height":400,"color":"4","label":"General"},
-		{"id":"title","type":"text","text":"# Visual Reference\n\nDrop images, PDFs, and notes here.","x":-400,"y":-300,"width":400,"height":120,"color":"6"},
 		{"id":"note-llm-wiki-1744033901","type":"file","file":"wiki/concepts/LLM Wiki Pattern.md","x":80,"y":-120,"width":300,"height":100},
 		{"id":"text-insight-1744033945","type":"text","text":"## Key insight\n\nKnowledge compounds like interest.\nEvery ingest enriches 8–15 pages.","x":80,"y":0,"width":300,"height":220,"color":"5"},
 		{"id":"img-logo-pro-1744033823","type":"file","file":"_attachments/images/skool-hub/logo-pro.png","x":-380,"y":-120,"width":419,"height":230},
 		{"id":"484d32f71e442aa0","type":"file","file":"Cosmic Brain Cover.png","x":-360,"y":360,"width":400,"height":206},
 		{"id":"a8f6d861b3c08664","type":"file","file":"Cosmic Brain Clean.gif","x":80,"y":360,"width":400,"height":206},
-		{"id":"8ef901e71f8bb99a","type":"file","file":"Claude SEO Posts cover 1x1-compressed.gif","x":80,"y":620,"width":400,"height":400},
-		{"id":"1b493d96e43535e2","type":"file","file":"Claude SEO Posts cover 1x1.gif","x":-360,"y":620,"width":400,"height":400},
-		{"id":"40480d22fb607a70","type":"file","file":"PROMPT.md","x":140,"y":1200,"width":400,"height":400},
-		{"id":"7b680dc65660903b","type":"file","file":"WIKI 1.md","x":-380,"y":1200,"width":400,"height":400},
-		{"id":"6c17fb8ecb9af539","type":"file","file":"Obsidian vault with Claude Code - full integration and visual organization 1.md","x":-380,"y":1680,"width":920,"height":640}
+		{"id":"title","type":"text","text":"# Visual Reference\n\nDrop images, PDFs, and notes here.","x":-440,"y":-360,"width":400,"height":120,"color":"6"}
 	],
 	"edges":[]
 }

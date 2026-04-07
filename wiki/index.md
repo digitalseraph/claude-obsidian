@@ -23,9 +23,9 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-04-07 | Total pages: 11 | Sources ingested: 1
+Last updated: 2026-04-07 | Total pages: 15 | Sources ingested: 1
 
-Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]]
+Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
 ---
 
@@ -39,23 +39,25 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]]
 
 ## Entities
 
+- [[Andrej Karpathy]] — AI researcher, creator of the LLM Wiki pattern, former Tesla AI director (status: developing)
 
 ---
 
 ## Sources
 
+<!-- Source pages are created automatically by ingest. Add your first source: "ingest [filename]" -->
 
 ---
 
 ## Questions
 
-<!-- Add question entries here after queries or /save -->
+- [[How does the LLM Wiki pattern work]] — how the pattern works and why it outperforms RAG at human scale (status: developing)
 
 ---
 
 ## Comparisons
 
-<!-- Add comparison entries here -->
+- [[Wiki vs RAG]] — when to use a wiki knowledge base versus RAG; verdict: wiki wins at <1000 pages
 
 ---
 

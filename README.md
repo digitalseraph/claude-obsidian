@@ -174,18 +174,53 @@ claude mcp add-json obsidian-vault '{
 
 ---
 
-## Recommended Plugins
+## Plugins (pre-installed)
 
-Install via Obsidian > Settings > Community Plugins:
+These ship with the vault — enable them in **Settings → Community Plugins → enable**:
 
-| Plugin | What it does |
-|--------|-------------|
-| Dataview | Powers the dashboard queries |
-| Templater | Auto-populates frontmatter from templates |
-| Obsidian Git | Auto-commits every 15 minutes |
-| Minimal Theme | Best dark theme for this setup |
+| Plugin | Purpose | Notes |
+|--------|---------|-------|
+| **Calendar** | Right-sidebar calendar with word count + task dots | Pre-installed |
+| **Thino** | Quick memo capture panel | Pre-installed |
+| **Excalidraw** | Freehand drawing canvas, annotate images | Pre-installed* |
+| **Banners** | Notion-style header image via `banner:` frontmatter | Pre-installed |
 
-Also install the **Obsidian Web Clipper** browser extension. It sends web pages to `.raw/` in one click.
+\* Excalidraw `main.js` (8MB) is downloaded automatically by `setup-vault.sh`. It is not tracked in git.
+
+Also install from **Community Plugins** (not pre-installed):
+
+| Plugin | Purpose |
+|--------|---------|
+| **Dataview** | Powers the dashboard Dataview queries |
+| **Templater** | Auto-fills frontmatter from `_templates/` |
+| **Obsidian Git** | Auto-commits vault every 15 minutes |
+
+Also install the **[Obsidian Web Clipper](https://obsidian.md/clipper)** browser extension — sends web pages to `.raw/` in one click.
+
+---
+
+## CSS Snippets (auto-enabled by setup-vault.sh)
+
+Three snippets ship with the vault and are enabled automatically:
+
+| Snippet | Effect |
+|---------|--------|
+| `vault-colors` | Color-codes `wiki/` folders by type in the file explorer (blue = concepts, green = sources, purple = entities) |
+| `ITS-Dataview-Cards` | Turns Dataview `TABLE` queries into visual card grids — use ` ```dataviewjs ` with `.cards` class |
+| `ITS-Image-Adjustments` | Fine-grained image sizing in notes — append `\|100` to any image embed |
+
+---
+
+## Banner Plugin
+
+Add to any wiki page frontmatter:
+
+```yaml
+banner: "_attachments/images/your-image.png"
+banner_icon: "🧠"
+```
+
+The page renders a full-width header image in Obsidian. Works great for hub pages and overviews.
 
 ---
 
@@ -221,6 +256,8 @@ cosmic-brain/
 ├── _templates/                  # Obsidian Templater templates
 ├── wiki/
 │   ├── Wiki Map.canvas          # visual hub — central graph node
+│   ├── canvases/                # welcome.canvas + main.canvas (visual demos)
+│   ├── getting-started.md       # onboarding walkthrough (inside the vault)
 │   ├── concepts/                # seeded: LLM Wiki Pattern, Hot Cache, Compounding Knowledge
 │   ├── entities/                # seeded: Andrej Karpathy
 │   ├── sources/                 # seeded: Nate Herk LLM Wiki Transcript

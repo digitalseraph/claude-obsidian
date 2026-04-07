@@ -8,7 +8,7 @@ This folder is both a Claude Code plugin and an Obsidian vault.
 
 ## What This Vault Is For
 
-[Fill this in when you first scaffold the vault. One sentence describing your purpose.]
+This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowledge base for Claude + Obsidian. Drop any source, ask any question, and the wiki grows richer with every session.
 
 ## Vault Structure
 

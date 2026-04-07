@@ -49,13 +49,21 @@ LIST FROM "wiki/entities" WHERE !sources OR length(sources) = 0
 ## Open Questions
 
 ```dataview
-LIST FROM "wiki/questions" WHERE answer_quality = "draft" SORT created DESC
+LIST FROM "wiki/questions" WHERE status = "developing" OR status = "seed" SORT updated DESC
 ```
 
 ---
 
-## Sources by Confidence
+## Comparisons
 
 ```dataview
-TABLE author, date_published, confidence FROM "wiki/sources" SORT confidence ASC
+TABLE verdict FROM "wiki/comparisons" SORT updated DESC
+```
+
+---
+
+## Sources
+
+```dataview
+TABLE author, date_published, updated FROM "wiki/sources" WHERE type = "source" SORT updated DESC LIMIT 10
 ```
