@@ -143,6 +143,8 @@ The tiling property says the same concept should live in one canonical page. Enf
 
 ## Mechanism 4 — Boundary-First Autoresearch
 
+> **Status: NOT IMPLEMENTED** (as of 2026-04-24). This section is a design sketch only. `skills/autoresearch/SKILL.md` does not currently compute `boundary_score` and does not consume frontier pages when invoked without a topic. Treat this section as a proposal for a future Phase 4, not shipped behavior.
+
 Boundary pages (high out-degree relative to in-degree, recency-weighted) are the vault's frontier. Extend `autoresearch` with a score:
 
 ```
