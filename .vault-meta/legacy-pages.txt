@@ -1,5 +1,5 @@
 # DragonScale legacy-pages manifest
-# rollout: 2026-04-24
+# rollout: 2026-04-23
 #
 # List, one path per line, any pages whose frontmatter `created:` date is
 # post-rollout but which should still be treated as legacy (i.e. not required

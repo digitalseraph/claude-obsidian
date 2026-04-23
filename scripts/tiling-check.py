@@ -398,9 +398,20 @@ def run_check(
 
     print(report)
     if report_path is not None:
-        report_path.parent.mkdir(parents=True, exist_ok=True)
-        report_path.write_text(report, encoding="utf-8")
-        log(f"report written: {report_path}")
+        # Confine report writes to VAULT_ROOT. A path that resolves outside
+        # the vault is refused (prevents `--report /etc/passwd` style
+        # accidents or hostile args from writing outside the repo).
+        try:
+            resolved_report = (
+                report_path if report_path.is_absolute() else (Path.cwd() / report_path)
+            ).resolve()
+            resolved_report.relative_to(VAULT_ROOT.resolve())
+        except ValueError:
+            log(f"ERR: --report path '{report_path}' escapes vault root {VAULT_ROOT}")
+            return EXIT_USAGE
+        resolved_report.parent.mkdir(parents=True, exist_ok=True)
+        resolved_report.write_text(report, encoding="utf-8")
+        log(f"report written: {resolved_report}")
 
     return EXIT_OK
 

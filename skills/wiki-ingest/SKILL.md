@@ -177,7 +177,7 @@ Do not silently overwrite old claims. Flag and let the user decide.
 
 ## What Not to Do
 
-- Do not modify anything in `.raw/`. These are immutable source documents.
+- **Source files under `.raw/` are immutable.** Do not modify the files that users drop there (articles, transcripts, images). The `.raw/.manifest.json` delta tracker and its `address_map` (DragonScale Mechanism 2) are the only files under `.raw/` that `wiki-ingest` itself maintains. Treat every other file under `.raw/` as read-only source content.
 - Do not create duplicate pages. Always check the index and search before creating.
 - Do not skip the log entry. Every ingest must be recorded.
 - Do not skip the hot cache update. It is what keeps future sessions fast.
