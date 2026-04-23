@@ -25,6 +25,15 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-04-23] save | DragonScale Memory — Phase 0 design doc (proposed)
+- Type: concept
+- Location: wiki/concepts/DragonScale Memory.md
+- From: brainstorming session on applying Heighway dragon curve properties to LLM wiki memory architecture
+- Scope: memory-layer only, NOT agent reasoning. Four mechanisms: (1) fold operator (LSM-style exponential compaction at 2^k log entries), (2) content-addressable page paths for prompt-cache stability, (3) semantic tiling lint (embedding-based dedup, 0.85 cosine threshold), (4) boundary-first autoresearch scoring
+- Status: proposed. Phase 0 pending codex adversarial review. Phase 1+ (fold skill, address anchors, tiling lint, boundary score) gated on review pass.
+- Primary sources verified: Dragon curve (Wikipedia, boundary dim 1.523627086), Regular paperfolding sequence (OEIS A014577), LSM trees (arXiv 2504.17178, LevelDB 10x level ratio), MemGPT (arXiv 2310.08560), Anthropic prompt caching docs (5min/1hr TTL, 20-block lookback)
+- Links updated: wiki/concepts/_index.md, wiki/index.md
+
 ## [2026-04-15] save | Claude SEO v1.9.0 Slides and GitHub Release
 - Type: session
 - Location: wiki/meta/2026-04-15-slides-and-release-session.md
