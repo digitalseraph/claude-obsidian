@@ -53,7 +53,7 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 1. Cross-phase audits are essential. Individual phase reviews miss drift between phases.
 2. Opt-in feature detection (`[ -x script ] && [ -f state ]`) preserves default plugin behavior for adopters and non-adopters alike.
-3. PostToolUse hook matcher is `Write|Edit` — Bash writes don't fire it. Scripts that mutate tracked state must be Bash-only to avoid side-effect commits.
+3. PostToolUse hook matcher is `Write|Edit`, so Bash writes don't fire it. Scripts that mutate tracked state must be Bash-only to avoid side-effect commits.
 4. Seed-vault self-consistency matters: if the spec says post-rollout pages need addresses, the concept page itself has to have one.
 5. Codex adversarial review rounds stop when the punch list is empty, not when the author feels done.
 
