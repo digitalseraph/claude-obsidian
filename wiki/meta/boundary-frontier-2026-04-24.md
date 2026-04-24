@@ -62,6 +62,6 @@ Read-only. Requires python3 only. No DragonScale setup needed to run the scorer 
 
 ## Connections
 
-- [[DragonScale Memory]] — spec, Mechanism 4
-- [[log]] — operation log
-- [[hot]] — recent context
+- [[DragonScale Memory]]: spec, Mechanism 4
+- [[log]]: operation log
+- [[hot]]: recent context
