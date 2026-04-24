@@ -54,7 +54,7 @@ Date: 2026-04-15 | Outputs: `claude-seo-slides/v190.html`, GitHub release v1.9.0
 | 14 | DataForSEO Guardrails | Bypass chain, before/after code snippet, fcntl |
 | 15 | What's Next | v1.9.1 H1/H2/M1 deferred items, Challenge v2 LEADS |
 
-**Screenshot paths note:** `claude-seo-slides/v190.html` contains 7 `file:///home/agricidaniel/...` paths for community post screenshots. Not sensitive, but not portable. `onerror` handlers show placeholder text when images fail. Works in Firefox; Chrome blocks cross-origin `file://` image requests.
+**Screenshot paths note:** `claude-seo-slides/v190.html` contains 7 absolute `file://` home paths for community post screenshots. Not sensitive, but not portable. `onerror` handlers show placeholder text when images fail. Works in Firefox; Chrome blocks cross-origin `file://` image requests.
 
 ### GitHub Release v1.9.0
 
