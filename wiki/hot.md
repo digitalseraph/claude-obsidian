@@ -48,9 +48,9 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## DragonScale Mechanisms
 
-1. **Fold operator** (Mechanism 1): `skills/wiki-fold/`, dry-run verified. No fold committed yet in this vault.
-2. **Deterministic addresses** (Mechanism 2): shipped; vault counter at 2 (DragonScale Memory.md holds c-000001).
-3. **Semantic tiling lint** (Mechanism 3): shipped; awaiting `ollama pull nomic-embed-text` to activate in this vault.
+1. **Fold operator** (Mechanism 1): `skills/wiki-fold/`, dry-run verified AND first real fold committed at `wiki/folds/fold-k3-from-2026-04-23-to-2026-04-24-n8.md`.
+2. **Deterministic addresses** (Mechanism 2): shipped and exercised; vault counter at 3. `c-000001` on DragonScale Memory.md. `c-000002` reserved-unassigned from validation pass (gap acceptable per spec).
+3. **Semantic tiling lint** (Mechanism 3): shipped and activated. `nomic-embed-text` pulled; first tiling report at `wiki/meta/tiling-report-2026-04-24.md` (0 errors, 15 review-band pairs).
 4. **Boundary-first autoresearch** (Mechanism 4): shipped (Phase 4, opt-in). `scripts/boundary-score.py` + `tests/test_boundary_score.py`. `/autoresearch` without a topic surfaces top-5 frontier pages as candidates; user picks, overrides, or declines. Explicitly labeled "agenda control" in both spec and skill.
 
 ## Key Lessons from This Release Cycle
