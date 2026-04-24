@@ -59,7 +59,7 @@ Date: 2026-04-15 | Outputs: `claude-seo-slides/v190.html`, GitHub release v1.9.0
 ### GitHub Release v1.9.0
 
 **Steps taken:**
-1. Fixed `SCREENSHOTS_DIR` hardcoded path in `scripts/release_report.py`: replaced `/home/agricidaniel/Downloads/...` with `Path.home() / "Downloads" / "..."` (Path was already imported).
+1. Fixed `SCREENSHOTS_DIR` hardcoded path in `scripts/release_report.py`: replaced the old absolute home Downloads path with `Path.home() / "Downloads" / "..."` (Path was already imported).
 2. Added `.claude/` and `.superpowers/` to `.gitignore`.
 3. Staged 68 files (31 modified, 37 new), committed as `feat: v1.9.0 Pro Hub Challenge community integration`.
 4. Remote had 1 commit ahead ("Remove blog links from README") — resolved with `git pull --rebase`.
