@@ -40,4 +40,4 @@ All entity pages — people, organizations, products, and tools.
 
 ---
 
-## Add new entities here as they are identified during ingests.
+> [!info] Add new entities here as they are identified during ingests.

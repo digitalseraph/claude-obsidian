@@ -1,6 +1,7 @@
 ---
 type: meta
 title: "Claude SEO v1.9.0 Release Report Session"
+created: 2026-04-15
 updated: 2026-04-15
 tags:
   - meta
@@ -21,7 +22,7 @@ Date: 2026-04-15 | Output: `~/Desktop/Claude-SEO-v1.9.0-Release-Report.pdf`
 
 ## What Was Built
 
-13-page dark-theme PDF release report for Claude SEO v1.9.0. Generated via `scripts/release_report.py` using WeasyPrint + matplotlib. Covers: Pro Hub Challenge contributions, architecture evolution, review score progression, security audit findings, DataForSEO cost guardrails, and Challenge v2 announcement.
+13-page dark-theme PDF release report for [[Claude SEO]] v1.9.0. Generated via `scripts/release_report.py` using WeasyPrint + matplotlib. Covers: Pro Hub Challenge contributions, architecture evolution, review score progression, security audit findings, DataForSEO cost guardrails, and Challenge v2 announcement.
 
 **Stats**: 13 pages, 1.53 MB, 4 charts, 7 screenshots embedded, logo visible on title page.
 

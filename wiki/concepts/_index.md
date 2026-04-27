@@ -15,9 +15,6 @@ related:
   - "[[Hot Cache]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Compounding Knowledge]]"
-  - "[[LLM Wiki Pattern]]"
-  - "[[Hot Cache]]"
-  - "[[Compounding Knowledge]]"
 ---
 
 # Concepts Index
@@ -40,4 +37,4 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 
 ---
 
-## Add new concepts here as they are extracted from sources.
+> [!info] Add new concepts here as they are extracted from sources.

@@ -1,3 +1,19 @@
+---
+type: meta
+title: "Semantic Tiling Report 2026-04-24"
+created: 2026-04-24
+updated: 2026-04-24
+tags:
+  - meta
+  - tiling
+  - dragonscale
+  - mechanism-3
+status: snapshot
+related:
+  - "[[DragonScale Memory]]"
+  - "[[log]]"
+---
+
 # Semantic Tiling Report
 
 - generated: 2026-04-24T09:20:59Z

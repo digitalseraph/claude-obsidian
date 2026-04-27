@@ -39,7 +39,7 @@ Two blog posts written, deployed to Vercel, and submitted to Google Indexing API
 
 ### Karpathy Gist Comment
 
-Comment posted on Andrej Karpathy's LLM Wiki gist (gist ID: 442a6bf555914893e9891c11519de94f). Links claude-obsidian (358 stars), claude-canvas, and the blog post. Highlights hot cache, contradiction flagging, 8-category lint, and autonomous research loops as differentiators.
+Comment posted on [[Andrej Karpathy]]'s LLM Wiki gist (gist ID: 442a6bf555914893e9891c11519de94f). Links claude-obsidian (358 stars), claude-canvas, and the blog post. Highlights hot cache, contradiction flagging, 8-category lint, and autonomous research loops as differentiators.
 
 ### GitHub Backlink Empire (26 Repos Updated)
 

@@ -19,7 +19,7 @@ related:
 
 # Pro Hub Challenge
 
-A community challenge hosted in the [AI Marketing Hub Pro](https://www.skool.com/ai-marketing-hub-pro) Skool community where members build extensions for Claude SEO or Claude Blog, competing for $600 in Claude Credits.
+A community challenge hosted in the [AI Marketing Hub Pro](https://www.skool.com/ai-marketing-hub-pro) Skool community where members build extensions for [[Claude SEO]] or Claude Blog, competing for $600 in Claude Credits.
 
 ## First Challenge (v1.9.0, April 2026)
 

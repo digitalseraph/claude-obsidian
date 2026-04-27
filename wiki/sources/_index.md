@@ -39,4 +39,4 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ---
 
-## Add new sources here after each ingest.
+> [!info] Add new sources here after each ingest.

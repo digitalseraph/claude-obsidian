@@ -2,8 +2,38 @@
   "version": 1,
   "created": "2026-04-23",
   "description": "Ingest delta tracker and address map for the claude-obsidian vault. Do not hand-edit; wiki-ingest maintains this.",
-  "sources": {},
+  "sources": {
+    ".raw/claude-obsidian-ecosystem-research.md": {
+      "hash": "51f800f90a1c8d9541934b54181b83dfaf1c820de95ecde90c65902ba29d53f9",
+      "hash_algorithm": "sha256",
+      "ingested_at": "2026-04-08",
+      "pages_created": [
+        "wiki/sources/claude-obsidian-ecosystem-research.md",
+        "wiki/comparisons/claude-obsidian-ecosystem.md",
+        "wiki/concepts/cherry-picks.md",
+        "wiki/entities/Ar9av-obsidian-wiki.md",
+        "wiki/entities/Nexus-claudesidian-mcp.md",
+        "wiki/entities/ballred-obsidian-claude-pkm.md",
+        "wiki/entities/rvk7895-llm-knowledge-bases.md",
+        "wiki/entities/kepano-obsidian-skills.md",
+        "wiki/entities/Claudian-YishenTu.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md",
+        "wiki/overview.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/sources/_index.md"
+      ],
+      "note": "Manifest entry backfilled 2026-04-27 by wiki-ingest manifest-repair pass (option 2). Original ingest on 2026-04-08 did not record itself in the manifest. pages_created reconstructed from wiki/log.md authoritative entry; pages_updated reconstructed conventionally."
+    }
+  },
   "address_map": {
-    "wiki/concepts/DragonScale Memory.md": "c-000001"
+    "wiki/concepts/DragonScale Memory.md": "c-000001",
+    "wiki/concepts/Persistent Wiki Artifact.md": "c-000003",
+    "wiki/concepts/Query-Time Retrieval.md": "c-000004",
+    "wiki/concepts/Source-First Synthesis.md": "c-000005"
   }
 }
