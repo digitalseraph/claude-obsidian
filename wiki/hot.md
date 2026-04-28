@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-04-24T13:10:00
+updated: 2026-04-28T12:05:00
 tags:
   - meta
   - hot-cache
@@ -19,6 +19,8 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
+
+2026-04-28: Cross-project session — set up the bitstub founder-hours weekly tracker as a Claude Code scheduled remote agent (`trig_013b5w322UwGZVhEn3SzRJEA`, Mondays 13:00 UTC, first fire 2026-05-04). Documented the pattern as a wiki concept page at [[Founder-Hours Tracking Routine]] (c-000006). Counter advanced 5 → 6. Page leads with the *pattern* (why solo-OSS projects need an automated weekly tracker — manual logging is itself the failure mode the cap is meant to prevent), then grounds in the bitstub instance. Cross-references [[Persistent Wiki Artifact]] and [[Compounding Knowledge]]. Watch item: bitstub repo private; first fire reveals whether remote-agent env auth pulls a digitalseraph private repo.
 
 2026-04-24 (late night): v1.6.0 public release notes shipped. `docs/releases/v1.6.0.md` (Karpathy-style, 346 lines) establishes the release-notes convention. Three original SVGs at `wiki/meta/dragonscale-{mechanism-overview,6-test-flow,frontier-graph}.svg` carry the visual load; Wikipedia dragon curve referenced by text link only (no binary vendoring). R4 codex verifier ACCEPT WITH FIXES, 3 wording fixes applied. User runs `gh release create v1.6.0 --notes-file docs/releases/v1.6.0.md` when ready. Commits `85515bb` (docs), plus wiki/meta/ auto-commits for SVGs.
 

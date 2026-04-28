@@ -37,4 +37,10 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 
 ---
 
+## Project Operations
+
+- [[Founder-Hours Tracking Routine]] — scheduled remote agent that adds weekly draft rows to a project's founder-hours log; first instance is bitstub, runs Mondays 13:00 UTC (developing)
+
+---
+
 > [!info] Add new concepts here as they are extracted from sources.

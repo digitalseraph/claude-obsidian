@@ -25,6 +25,15 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-04-28] save | Founder-Hours Tracking Routine concept (bitstub)
+- Type: concept
+- Location: wiki/concepts/Founder-Hours Tracking Routine.md
+- Address: c-000006
+- From: cross-project session — set up a Claude Code scheduled remote agent (`trig_013b5w322UwGZVhEn3SzRJEA`) to auto-add weekly draft rows to bitstub's `docs/founder-hours.md`, then documented the pattern in this wiki for re-use.
+- Scope: pattern documentation, not solely the bitstub instance. The page leads with the pattern (why, mechanism, configuration template, when-it-fits) and grounds in the bitstub instance as the worked example. Cross-references [[Persistent Wiki Artifact]] and [[Compounding Knowledge]].
+- Routine: runs Mondays 13:00 UTC year-round, model claude-sonnet-4-6, no MCP connectors. First fire: 2026-05-04. Manage at https://claude.ai/code/routines/trig_013b5w322UwGZVhEn3SzRJEA.
+- Watch item: bitstub repo is private; first-run will reveal whether remote-agent environment auth pulls a digitalseraph private repo. Fallback is local cron / launchd against a local clone.
+
 ## [2026-04-24] save | v1.6.0 public release notes (Teams, Karpathy-style)
 - Type: release doc + visual assets
 - Locations (new): `docs/releases/v1.6.0.md` (346 lines, 6 sections, Karpathy-style prose), `wiki/meta/dragonscale-mechanism-overview.svg` (4-mechanism diagram with shared .vault-meta/ gate), `wiki/meta/dragonscale-6-test-flow.svg` (validation timeline), `wiki/meta/dragonscale-frontier-graph.svg` (M4 candidate + 3 filed pages)
