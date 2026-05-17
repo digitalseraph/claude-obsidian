@@ -8,16 +8,37 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a31de1b302cdc5cf",
+            "id": "c0044f809f915a48",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/hot.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "hot"
+            }
+          },
+          {
+            "id": "4d8e87a0bc9bd987",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "wiki/comparisons/Wiki vs RAG.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Wiki vs RAG"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -167,13 +188,33 @@
               "icon": "lucide-ghost",
               "title": "calendar"
             }
+          },
+          {
+            "id": "49a09107332507b8",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
+            "id": "79ac5e2afe9223c5",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Connections"
+            }
           }
-        ]
+        ],
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,9 +224,41 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-memos:Thino": false,
+      "obsidian-memos:Thino Super": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-git:Open Git source control": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Smart Connections: Open random connection": false,
+      "smart-connections:Smart Lookup: Open lookup view": false
     }
   },
-  "active": "a31de1b302cdc5cf",
-  "lastOpenFiles": []
+  "active": "4d8e87a0bc9bd987",
+  "lastOpenFiles": [
+    "wiki/comparisons/claude-obsidian-ecosystem.md",
+    "wiki/canvases/welcome.canvas",
+    "wiki/canvases/main.canvas",
+    "wiki/hot.md",
+    "wiki/log.md",
+    "Clippings/sirmallocccstatusline 🚀 Beautiful highly customizable statusline for Claude Code CLI with powerline support, themes, and more..md",
+    "wiki/hot.md.tmp.1942092.1777378684803",
+    "wiki/hot.md.tmp.1942092.1777378675957",
+    "wiki/log.md.tmp.1942092.1777378671418",
+    "wiki/index.md.tmp.1942092.1777378649627",
+    "wiki/index.md.tmp.1942092.1777378646475",
+    "wiki/concepts/_index.md.tmp.1942092.1777378645306",
+    "wiki/concepts/Founder-Hours Tracking Routine.md",
+    "wiki/concepts/Founder-Hours Tracking Routine.md.tmp.1942092.1777378627578",
+    "CLAUDE.md",
+    "README.md",
+    "GEMINI.md",
+    "wiki/meta/lint-report-2026-04-27.md.tmp.1942092.1777323688121",
+    "wiki/folds/fold-k3-from-2026-04-23-to-2026-04-24-n8.md.tmp.1942092.1777323596479",
+    "wiki/folds/fold-k3-from-2026-04-23-to-2026-04-24-n8.md.tmp.1942092.1777323594583",
+    "wiki/meta/lint-report-2026-04-27.md",
+    "WIKI.md",
+    "wiki/sources/claude-obsidian-ecosystem-research.md"
+  ]
 }

@@ -107,3 +107,9 @@ _attachments/
 .vault-meta/.tiling.lock
 .vault-meta/tiling-cache.json
 .vault-meta/tiling-cache.*.tmp
+
+
+
+
+# Ignore Smart Environment folder
+.smart-env

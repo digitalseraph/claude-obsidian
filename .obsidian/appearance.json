@@ -3,5 +3,6 @@
     "vault-colors",
     "ITS-Dataview-Cards",
     "ITS-Image-Adjustments"
-  ]
+  ],
+  "cssTheme": "Minimal"
 }

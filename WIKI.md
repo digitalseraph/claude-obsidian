@@ -1,4 +1,4 @@
-# WIKI.md — LLM Wiki Schema
+# WIKI.md — LLM Wiki Schemaqa
 
 > If you are using the claude-obsidian plugin, the skills handle everything here automatically.
 > This file is the reference document. Read it to understand how the system works.
