@@ -31,6 +31,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Concepts
 
+- [[PDF Bank-Statement Parsing on Workers]] — unpdf newline-free blob, per-bank layouts (PNC vs Capital One), D1 ~100-param cap, PII-safe debugging method (status: developing)
 - [[LLM Wiki Pattern]] — the pattern for building persistent, compounding knowledge bases using LLMs (status: mature)
 - [[Hot Cache]] — ~500-word session context file, updated after every ingest and session (status: mature)
 - [[Compounding Knowledge]] — why wiki knowledge grows more valuable over time, unlike RAG (status: mature)
@@ -45,6 +46,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Source-First Synthesis]]: provenance discipline; raw sources stay immutable while the wiki layer is synthesized and cited (status: developing)
 - [[Query-Time Retrieval]]: wiki query path synthesizes with citations; complementary to Obsidian's in-vault search (status: developing)
 - [[Founder-Hours Tracking Routine]] — scheduled Claude Code remote agent for solo-OSS weekly hour-logging; circuit breaker for the §7.3.1-style burnout failure mode (status: developing)
+- [[CI Build Gotchas - Cloudflare Workers Vitest Vite]] — workerd vs @vitest/coverage-v8, wrangler Node≥22, e2e/lighthouse Worker-server pattern, jsx-a11y controlComponents, ?raw bundle bloat, git-add/.vite foot-guns (status: current)
 
 ---
 

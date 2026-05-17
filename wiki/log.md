@@ -25,6 +25,21 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-05-17] save | CI & Build Gotchas concept
+
+- New: [[CI Build Gotchas - Cloudflare Workers Vitest Vite]]
+- Source: marietta-na CI repair across PRs #5–#10 (coverage, bundle,
+  Node 22, e2e/lighthouse Worker-server harness)
+- 6 reusable failure modes: workerd vs @vitest/coverage-v8; wrangler
+  Node≥22; prod-faithful Worker test-server + seeded D1; jsx-a11y
+  controlComponents; ?raw bundle inlining; git-add/.vite foot-guns
+- Indexed under Concepts
+
+## [2026-05-17] save | PDF Bank-Statement Parsing on Cloudflare Workers concept
+- Type: concept
+- Location: wiki/concepts/PDF Bank-Statement Parsing on Workers.md
+- From: Pippa multi-bank PDF statement import work — unpdf newline-free blob, PNC vs Capital One layouts and inverted card signs, Cloudflare D1 ~100 bound-parameter cap, Plaid-vs-seed prod account IDs, PII-safe evidence-driven debugging method.
+
 ## [2026-04-28] save | Founder-Hours Tracking Routine concept (bitstub)
 - Type: concept
 - Location: wiki/concepts/Founder-Hours Tracking Routine.md
