@@ -262,6 +262,17 @@ Net cut: ~60-80% per merged PR. Cloudflare deploys are CF's compute, not yours.
 
 ---
 
+## Branch hygiene
+
+Post-merge cleanup: 5 stale local branches showed `[gone]` in `git branch -vv` after `git fetch --prune origin` — remote tips deleted by GitHub's "Automatically delete head branches" repo setting on PR merge. `git ls-remote --heads origin` confirms only `master` remote-side.
+
+Implications for future sessions:
+- After every merge, `git fetch --prune` + `git branch -D <gone branches>` is the full cleanup.
+- No need to `gh api DELETE` remote refs — the repo setting handles it.
+- Squash-merged branches will not satisfy `git branch -d` (the original commit SHA is unreachable from master); use `-D` and rely on reflog (~90 days) for rollback.
+
+---
+
 ## Workflow notes
 
 - Mid-stream context switch (user shifted from drive feature to CI cost) handled by committing drive WIP on its branch with no push (zero Actions cost), then branching `ci/cut-actions-costs` off master cleanly. Two separate PRs let CI changes merge first so the drive PR ran on the optimized workflow.
