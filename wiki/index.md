@@ -84,7 +84,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sessions
 
-- [[2026-05-24-marietta-na-drive-shortcut-file-kind-session]] — marietta-na: drive shortcut accepts file or folder + CI Actions cost cut (path filter, dist artifact share, Playwright cache); two CI gotchas (paths-filter permissions, `import.meta.env` module-load freeze)
+- [[2026-05-24-marietta-na-drive-shortcut-file-kind-session]] — marietta-na: drive shortcut accepts file or folder + CI Actions cost cut (path filter, dist artifact share, Playwright cache) → followed by local-first pivot (husky pre-push, drop PR CI, master-only backstop, ~60-80% Actions cut); two CI gotchas (paths-filter permissions, `import.meta.env` module-load freeze)
 
 ---
 

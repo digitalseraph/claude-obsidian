@@ -25,6 +25,14 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-05-24] update | marietta-na session — PR #53 local-first pipeline
+
+- Type: session (update of existing page)
+- Location: wiki/meta/2026-05-24-marietta-na-drive-shortcut-file-kind-session.md
+- From: marietta-na worktree — PR #53 (husky pre-push, drop PR CI, master-only backstop). Adds "PR #53" section to the existing session page.
+
+---
+
 ## [2026-05-24] save | marietta-na drive shortcut file kind + CI cost cut session
 
 - Type: session

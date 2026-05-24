@@ -10,6 +10,8 @@ tags:
   - ci
   - drive-picker
   - cloudflare-workers
+  - husky
+  - local-first
 status: developing
 related:
   - "[[CI Build Gotchas - Cloudflare Workers Vitest Vite]]"
@@ -17,15 +19,16 @@ related:
 
 # 2026-05-24 marietta-na drive shortcut file kind + CI cost cut session
 
-Three PRs shipped against `digitalseraph/marietta-na` master:
+Four PRs shipped against `digitalseraph/marietta-na` master:
 
 - **#50** — CI Actions minute reduction (path filter, frontend dist artifact share, Playwright browser cache).
 - **#51** — Drive shortcut feature: shortcut now points at a Drive folder OR a single Drive file.
 - **#52** — `permissions: pull-requests: read` fix for `dorny/paths-filter@v3` 403.
+- **#53** — Local-first pipeline pivot: husky pre-push runs typecheck + tests + build; PR CI dropped; master-only backstop. Supersedes the PR #50 path-filter design.
 
 Plus one in-feature hotfix commit (`88aca40`) after PR #51's CI failed because `import.meta.env` reads were frozen at module load.
 
-Branch state ended clean on master; all three feature/CI branches deleted locally.
+Branch state ended clean on master; all four feature/CI branches deleted locally.
 
 ---
 
@@ -201,6 +204,61 @@ mv .env.local .env.local.bak
 npm test
 mv .env.local.bak .env.local
 ```
+
+---
+
+## PR #53 — local-first pipeline pivot
+
+PR #50's path-filter strategy was a partial fix. PR #53 went further: move the full test battery out of GitHub Actions entirely on PR runs. The user's framing was "we can run test suites locally — lets save money and time."
+
+### New pipeline shape
+
+| Trigger | What runs | Where |
+|---------|-----------|-------|
+| Pre-push | typecheck + tests + build (~3-5 min) | Local (`.husky/pre-push`) |
+| PR push | nothing | — |
+| Master push | api + frontend + lighthouse + e2e | GitHub Actions |
+| Master push | `wrangler deploy` | Cloudflare Workers Builds (configured in CF dashboard) |
+
+### What changed
+
+- Added `husky@9` devDep + `prepare: "husky"` script at root `package.json`. `npm install` auto-creates `.husky/_` (self-gitignored) on every contributor's machine.
+- Authored `.husky/pre-push`:
+
+  ```sh
+  #!/usr/bin/env sh
+  set -e
+  echo "[pre-push] typecheck"; npm run typecheck
+  echo "[pre-push] tests";     npm test
+  echo "[pre-push] build";     npm run build
+  echo "[pre-push] OK"
+  ```
+
+- Added a root `prepush` script that runs the same sequence so contributors can dry-run the gate without committing.
+- `.github/workflows/ci.yml` dropped the `pull_request:` trigger entirely, dropped the `dorny/paths-filter@v3` `changes` job (no longer needed without PR runs), and tightened `npm audit --omit=dev --audit-level=high` to fail the run instead of warning. Master-only, four-job backstop retained: api, frontend, lighthouse, e2e.
+- `CLAUDE.md` documents the local-first contract under a new `CI / deploy pipeline` heading.
+
+### Cost shape
+
+| Baseline | Actions per merged PR |
+|---|---|
+| Pre-PR-50 | ~40 min (4 jobs × ~10 min on PR + 4 jobs × ~10 min on master merge) |
+| PR-50 | ~14-30 min (path filter + artifact share + Playwright cache) |
+| PR-53 | ~7-15 min (master CI only, no PR runs) |
+
+Net cut: ~60-80% per merged PR. Cloudflare deploys are CF's compute, not yours.
+
+### Tightening that survived the pivot
+
+- Frontend dist artifact share (lighthouse + e2e download instead of rebuild) — kept.
+- Playwright browser cache keyed by `@playwright/test` version — kept.
+- Master-only `concurrency: cancel-in-progress` so a rapid second master push cancels the first — kept.
+
+### Risk + mitigation
+
+- The hook is what makes the no-PR-CI policy safe. Standard git push opt-out flag exists but documented as WIP-only.
+- Master CI remains as backstop for works-on-my-machine drift (different Node minors, missing env, etc.).
+- `npm audit --audit-level=high` failing the run is now the only security gate that runs on PRs being absent — it runs on master so the bad version never deploys, but a contributor could land a broken security state in a PR without a CI run flagging it. Mitigation: pre-push could grow an `npm audit` step later if this becomes a real risk.
 
 ---
 
