@@ -82,6 +82,12 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ---
 
+## Sessions
+
+- [[2026-05-24-marietta-na-drive-shortcut-file-kind-session]] — marietta-na: drive shortcut accepts file or folder + CI Actions cost cut (path filter, dist artifact share, Playwright cache); two CI gotchas (paths-filter permissions, `import.meta.env` module-load freeze)
+
+---
+
 ## Decisions
 
 - [[2026-04-14-community-cta-rollout]] - Skool community CTA footer added to 6 skill repos with per-tool frequency rules (status: active)

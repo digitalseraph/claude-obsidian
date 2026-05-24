@@ -25,6 +25,14 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-05-24] save | marietta-na drive shortcut file kind + CI cost cut session
+
+- Type: session
+- Location: wiki/meta/2026-05-24-marietta-na-drive-shortcut-file-kind-session.md
+- From: marietta-na worktree — PRs #50 (CI cost cut), #51 (drive shortcut file or folder), #52 (paths-filter permissions fix) + commit `88aca40` (env-at-render-time fix)
+
+---
+
 ## [2026-05-17] save | CI & Build Gotchas concept
 
 - New: [[CI Build Gotchas - Cloudflare Workers Vitest Vite]]

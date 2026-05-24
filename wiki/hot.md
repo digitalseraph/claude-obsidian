@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-04-28T12:05:00
+updated: 2026-05-24T14:00:00
 tags:
   - meta
   - hot-cache
@@ -19,6 +19,8 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
+
+2026-05-24: Cross-project save from marietta-na (Cloudflare Worker + React 19 PWA). Three PRs shipped: #50 (CI Actions cost cut via `dorny/paths-filter@v3` path gating, `frontend/dist` artifact share between frontend/lighthouse/e2e, Playwright browser cache keyed by `@playwright/test` version), #51 (drive shortcut accepts a Drive folder OR a single file — migration 0030 adds `kind` column, `extractDriveItem` replaces `extractDriveFolderId`, picker exposes folders + files views), #52 (top-level `permissions: pull-requests: read` for paths-filter). Two CI gotchas captured: (1) `dorny/paths-filter@v3` 403s without explicit `pull-requests: read` even on PRs from the same repo; (2) module-level `import.meta.env` reads freeze at import time, so any `.env.local`-dependent boolean ships green locally and red in CI — fix is to read inside the component so vitest's `vi.stubEnv` flows through. Vite still inlines `import.meta.env.*` at prod build. Reproducible by `mv .env.local .env.local.bak && npm test`. See [[2026-05-24-marietta-na-drive-shortcut-file-kind-session]].
 
 2026-05-17: Cross-project save from Pippa (personal-finance app, Next.js on Cloudflare Workers). New concept page [[PDF Bank-Statement Parsing on Workers]] captures reusable parsing knowledge. `unpdf` `extractText({mergePages:true})` returns one newline-free blob, so line-based parsers silently return 0; use a global tokenizer with offset-based section sign. PNC layout is Date, Amount, Description with section-set signs. Capital One credit-card layout is wholly different: month-name cycle `Mon DD, YYYY - Mon DD, YYYY`, records `Mon DD Mon DD DESC [- ]$AMT`, signs inverted versus a bank. Cloudflare D1 caps bound params per statement at about 100, so a multi-row INSERT must chunk by columns not rows (otherwise an empty body, and the client sees "Unexpected end of JSON input"). Production account IDs are Plaid-sourced (`acct_plaid_*`) not seeded (`acct_*`); verify backfills against live D1. PII-safe debugging means: pull the real file, run the exact extractor, print only letters-to-a / digits-to-9 shape. Architecture: a `BankStatementParser` interface plus a registry keyed off the schema enum. Address counter unchanged (the save skill does not allocate addresses).
 
