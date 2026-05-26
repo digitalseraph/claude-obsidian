@@ -84,7 +84,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sessions
 
-- [[2026-05-26-marietta-na-storybook-visual-regression-session]] — marietta-na: Storybook 10 + visual regression for all 17 UI primitives (73 stories, 73 PNG baselines) via `@storybook/test-runner` + `jest-image-snapshot`; master-only CI job; five gotchas (Vite plugin inheritance, Jest-global `expect`, addon-a11y double-check, empty `<th>` in DataTable filter row, i18n preview init); plus bonus webhook signature middleware (generic HMAC-SHA-256, Stripe/GitHub-style extractors)
+- [[2026-05-26-marietta-na-storybook-visual-regression-session]] — marietta-na: Storybook 10 + visual regression for all 17 UI primitives (73 stories, 73 PNG baselines) via `@storybook/test-runner` + `jest-image-snapshot`; master-only CI job; five Storybook gotchas; plus bonus closeouts: generic HMAC-SHA-256 webhook signature middleware + hidden source maps with no-op-when-unset Sentry uploader. Three previously open backlog items shipped same day.
 - [[2026-05-24-marietta-na-drive-shortcut-file-kind-session]] — marietta-na: drive shortcut accepts file or folder + CI Actions cost cut (path filter, dist artifact share, Playwright cache) → followed by local-first pivot (husky pre-push, drop PR CI, master-only backstop, ~60-80% Actions cut); two CI gotchas (paths-filter permissions, `import.meta.env` module-load freeze)
 
 ---

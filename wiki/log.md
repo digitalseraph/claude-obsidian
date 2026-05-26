@@ -25,6 +25,14 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-05-26] update | marietta-na session — hidden source maps + Sentry stub
+
+- Type: session (update of existing page)
+- Location: wiki/meta/2026-05-26-marietta-na-storybook-visual-regression-session.md
+- From: master commit `6bcf27d`. Vite `build.sourcemap: "hidden"` + `frontend/scripts/upload-sourcemaps.mjs` (Sentry CLI when env set, no-op-skip otherwise, always strips `.map` from `dist/`). Pattern: closes the build-side half so only DSN + pipeline wiring remain when account lands.
+
+---
+
 ## [2026-05-26] update | marietta-na session — webhook signature middleware
 
 - Type: session (update of existing page)

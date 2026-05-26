@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-26T15:00:00
+updated: 2026-05-26T17:00:00
 tags:
   - meta
   - hot-cache
@@ -19,6 +19,8 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
+
+2026-05-26 (later): Third closeout — hidden source maps + Sentry uploader stub. `vite.config.ts` `build.sourcemap: "hidden"` so `.map` files exist on disk but bundles carry no `sourceMappingURL` pragma (browsers don't auto-fetch). `frontend/scripts/upload-sourcemaps.mjs` shells out to `@sentry/cli@^2 releases files <sha> upload-sourcemaps dist --url-prefix "~/assets" --validate` when `SENTRY_AUTH_TOKEN`/`ORG`/`PROJECT` are all set; logs `skipped` + exits 0 otherwise so the deploy pipeline can chain it from day one. Either branch then strips `.map` from `dist/` so the Worker never serves them (`SOURCEMAPS_DELETE=0` keeps them for local `wrangler dev`). Verified locally: 96 maps emitted, no pragma in JS, skip-and-strip clean, bundle policy unchanged at 63 chunks / 1639 KB. Master `6bcf27d`. Three previously-open backlog items closed today via the same pattern — build the engineering half now, plug in account/DSN/spec when it lands. See [[2026-05-26-marietta-na-storybook-visual-regression-session]].
 
 2026-05-26 (late): Bonus closeout — generic HMAC-SHA-256 webhook signature middleware at `api/src/lib/webhook-signature.ts`. Provider-agnostic: `secret` callback (lazy env read → 503 not crash), configurable `header`, `prefix` (GitHub `sha256=`) or custom `extract` (Stripe `t=...,v1=...`), hex/base64 encoding. Verified body stashed on Hono context (one-shot stream — handlers call `getWebhookBody(c)` instead of re-reading). Constant-time compare. 401 mismatch/missing_header/malformed_header, 503 missing_secret. 10 tests pass. Backlog item flipped to `[~]` — lib ready, no inbound provider wired yet. Hono context typing gotcha: `c.set` rejects undeclared keys; cast through `as unknown as { set: (k: string, v: unknown) => void }` rather than leaking a library sentinel onto the global Variables shape. Master at `21aca8a`.
 

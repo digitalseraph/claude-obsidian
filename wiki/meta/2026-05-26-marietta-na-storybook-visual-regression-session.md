@@ -221,10 +221,60 @@ Failure modes return JSON `{ error, reason }`:
 
 ---
 
-## What's still open
+## Bonus commit — hidden source maps + Sentry upload stub
 
-Per `docs/site/src/content/docs/contributing/todo.md`:
+Master `6bcf27d`. Builds the deploy-side half of the "Source maps to error tracker" item so when a Sentry / Rollbar DSN arrives only an env var + one pipeline step are needed.
 
-- Group attendance broadcast to Region (out-bound API; no Region API spec yet)
-- Source maps to error tracker (blocked on Sentry / Rollbar DSN)
-- External-blocked: Sentry, Turnstile, Stripe online donations, Privacy/ToS counsel review
+### Vite change
+
+`vite.config.ts` adds `build.sourcemap: "hidden"`. The `"hidden"` mode emits `.map` files alongside JS bundles but omits the `//# sourceMappingURL` pragma. Browsers therefore never auto-fetch maps from the CDN (privacy + bandwidth) while the maps remain on disk for upload.
+
+### `frontend/scripts/upload-sourcemaps.mjs`
+
+Provider-agnostic in structure but currently calls Sentry CLI. When `SENTRY_AUTH_TOKEN` + `SENTRY_ORG` + `SENTRY_PROJECT` are all set:
+
+```
+npx --yes @sentry/cli@^2 releases files <release> upload-sourcemaps dist --url-prefix "~/assets" --validate
+```
+
+`release` defaults to the short HEAD SHA (matches `__APP_BUILD_SHA__` baked into the prod bundle by `vite.config.ts`), or `SENTRY_RELEASE` if set.
+
+When any of the three env vars is missing, the script logs `[upload-sourcemaps] ... skipping upload` and exits 0. Safe to chain in the deploy pipeline from day one.
+
+Either branch then strips `.map` files from `dist/` so the deployed Worker doesn't serve them. `SOURCEMAPS_DELETE=0` keeps them for local `wrangler dev` debugging.
+
+### Verified locally
+
+- `npm run build` emits 96 `.map` files in `dist/`.
+- `grep sourceMappingURL` on the bundles returns nothing (pragma omitted).
+- `npm run sourcemaps:upload` without env prints `skipped` and removes all 96 `.map` files.
+- `npm run build:check` unchanged at 63 chunks / 1639 KB — `.map` excluded by the existing `endsWith(".js")` filter in `check-bundle-size.mjs`.
+
+### Wiring note (for whoever lands the DSN)
+
+Deploy order:
+
+```
+npm run build
+npm run sourcemaps:upload   # uploads + strips
+wrangler deploy
+```
+
+`SENTRY_RELEASE` should match whatever value the in-browser Sentry SDK sends with events (typically the short SHA — `__APP_BUILD_SHA__` is already exposed for that).
+
+---
+
+## Backlog state after today
+
+Truly external-blocked items remaining (all need an account / spec / counsel signature out of engineering's control):
+
+- Group attendance broadcast to Region — Region API spec
+- Sentry / Rollbar account → DSN (only the SDK init + DSN env var left after today)
+- Turnstile / hCaptcha site key
+- Stripe account → online 7th-tradition donation
+- Privacy + ToS counsel review (scaffolds already shipped on `fbfa859`)
+
+Three previously-listed items closed today via stub-able patterns:
+1. Storybook + visual regression (`eac0834`, `c1e2c57`, `e395a49`) — full sweep.
+2. Webhook signature middleware (`21aca8a`) — generic verifier, drops in front of any future inbound provider.
+3. Source maps to error tracker (`6bcf27d`) — hidden maps + no-op-when-unset Sentry uploader.
