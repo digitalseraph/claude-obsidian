@@ -25,6 +25,14 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-05-26] update | marietta-na session — webhook signature middleware
+
+- Type: session (update of existing page)
+- Location: wiki/meta/2026-05-26-marietta-na-storybook-visual-regression-session.md
+- From: master commit `21aca8a`. Generic HMAC-SHA-256 webhook verifier (`api/src/lib/webhook-signature.ts`) ready for BMLT/Stripe/Zoho/GitHub-style inbound. 10-case test, 350/350 api green.
+
+---
+
 ## [2026-05-26] save | marietta-na storybook + visual regression session
 
 - Type: session

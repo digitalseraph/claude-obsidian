@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-26T09:00:00
+updated: 2026-05-26T15:00:00
 tags:
   - meta
   - hot-cache
@@ -19,6 +19,8 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
+
+2026-05-26 (late): Bonus closeout — generic HMAC-SHA-256 webhook signature middleware at `api/src/lib/webhook-signature.ts`. Provider-agnostic: `secret` callback (lazy env read → 503 not crash), configurable `header`, `prefix` (GitHub `sha256=`) or custom `extract` (Stripe `t=...,v1=...`), hex/base64 encoding. Verified body stashed on Hono context (one-shot stream — handlers call `getWebhookBody(c)` instead of re-reading). Constant-time compare. 401 mismatch/missing_header/malformed_header, 503 missing_secret. 10 tests pass. Backlog item flipped to `[~]` — lib ready, no inbound provider wired yet. Hono context typing gotcha: `c.set` rejects undeclared keys; cast through `as unknown as { set: (k: string, v: unknown) => void }` rather than leaking a library sentinel onto the global Variables shape. Master at `21aca8a`.
 
 2026-05-26: marietta-na frontend gains Storybook 10 + visual regression across all 17 UI primitives (73 stories, 73 baselines). Stack: `@storybook/react-vite`, `@storybook/test-runner` + `jest-image-snapshot` (1% diff tolerance), `addon-a11y` + axe-playwright for WCAG 2 A/AA. Color-contrast offloaded to existing `gen-contrast-matrix.mjs`. Master-only CI job, parallel with lighthouse + e2e; pre-push hook unchanged so the PR #53 local-first contract holds. Five gotchas captured: (1) Storybook inherits the project's Vite plugin chain — must filter `vite-plugin-pwa` (+ 4 satellites), `@cloudflare/vite-plugin`, `@mdx-js/rollup` via `viteFinal`; (2) `expect` is a Jest global injected at run time, NOT a `@storybook/test-runner` export — register matchers inside the `setup()` lifecycle; (3) `addon-a11y` runs its own check separate from the postVisit hook — disable color-contrast in `preview.ts` `a11y.config.rules`; (4) DataTable filter row inside `<thead>` triggered axe `empty-table-header` on noFilter columns — switched cells from `<Th>` to `<Td>` (real fix, lands a WCAG 1.3.1 improvement); (5) DataTable's `useTranslation` needed a side-effect `import "../src/i18n"` in preview. Planning loop with the Plan agent caught the v9-vs-v10 peer-dep mismatch up front. See [[2026-05-26-marietta-na-storybook-visual-regression-session]].
 

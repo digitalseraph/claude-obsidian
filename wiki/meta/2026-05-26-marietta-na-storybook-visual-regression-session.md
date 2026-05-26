@@ -197,11 +197,34 @@ The Storybook work entered the session in plan mode: full Phase 1-5 plan-file wo
 
 ---
 
+## Bonus commit — webhook signature middleware
+
+After the Storybook arc closed, knocked out the BMLT-blocked "webhook signature middleware" item too. Generic HMAC-SHA-256 verifier at `api/src/lib/webhook-signature.ts`. Provider-agnostic by design — same module covers BMLT (eventual), Stripe, Zoho, GitHub-style payloads with one configuration surface:
+
+- `secret: (c) => string` — pulled at request time so missing config surfaces as 503, not Worker-boot crash.
+- `header: string` — names the HTTP header carrying the signature.
+- `prefix?: string` — strips `sha256=` (GitHub).
+- `extract?: (h) => string | null` — covers structured headers like Stripe's `t=...,v1=...`.
+- `encoding?: "hex" | "base64"` — hex by default.
+
+Verified body stashed on Hono context via `getWebhookBody(c)` so handlers don't have to re-read the one-shot stream. Constant-time compare guards against timing leaks.
+
+Failure modes return JSON `{ error, reason }`:
+- `503 webhook_not_configured / missing_secret`
+- `401 unauthorized / missing_header | malformed_header | mismatch`
+
+10-case test (`api/test/webhook-signature.test.ts`) covers hex/base64, case-insensitive provided sig, single-byte tamper rejection, GitHub prefix, Stripe extractor, all middleware error branches. Master at `21aca8a`. Backlog item flipped `[ ]` → `[~]` (lib ready, no inbound route wired yet).
+
+### Hono context typing gotcha
+
+`c.set(key, value)` is strictly typed against the app's declared Variables map. A library-internal sentinel key (here `"__webhookBody"`) isn't declared anywhere, so TypeScript rejects it. Cast through `c as unknown as { set: (k: string, v: unknown) => void }` is the local escape hatch — declaring the key on the global `Variables` shape would leak the implementation detail into every other route's context.
+
+---
+
 ## What's still open
 
 Per `docs/site/src/content/docs/contributing/todo.md`:
 
 - Group attendance broadcast to Region (out-bound API; no Region API spec yet)
-- Webhook signature middleware (blocked on BMLT supporting inbound)
 - Source maps to error tracker (blocked on Sentry / Rollbar DSN)
 - External-blocked: Sentry, Turnstile, Stripe online donations, Privacy/ToS counsel review
