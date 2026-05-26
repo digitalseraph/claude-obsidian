@@ -25,6 +25,14 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-05-26] save | marietta-na storybook + visual regression session
+
+- Type: session
+- Location: wiki/meta/2026-05-26-marietta-na-storybook-visual-regression-session.md
+- From: marietta-na worktree — three master-direct commits (`eac0834`, `c1e2c57`, `e395a49`). Storybook 10 + jest-image-snapshot covers 17/17 UI primitives. DataTable filter row a11y fix landed as a side effect.
+
+---
+
 ## [2026-05-24] update | marietta-na session — PR #53 local-first pipeline
 
 - Type: session (update of existing page)
