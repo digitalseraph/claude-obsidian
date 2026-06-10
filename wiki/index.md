@@ -31,6 +31,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Concepts
 
+- [[Cloudflare Access Breaks Session-Based PWA Logins]] — Zero Trust in front of /api/* intercepts better-auth OAuth + the session-check XHR; the PWA shell hides it; fix is bypass /api*, prompt=select_account (status: developing)
 - [[PDF Bank-Statement Parsing on Workers]] — unpdf newline-free blob, per-bank layouts (PNC vs Capital One), D1 ~100-param cap, PII-safe debugging method (status: developing)
 - [[LLM Wiki Pattern]] — the pattern for building persistent, compounding knowledge bases using LLMs (status: mature)
 - [[Hot Cache]] — ~500-word session context file, updated after every ingest and session (status: mature)

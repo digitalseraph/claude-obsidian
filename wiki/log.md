@@ -25,6 +25,14 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-06-10] save | Cloudflare Access Breaks Session-Based PWA Logins
+
+- Type: concept
+- Location: wiki/concepts/Cloudflare Access Breaks Session-Based PWA Logins.md
+- From: debugging Google login on mariettana.digitalseraph.com — three root causes (CF Access gating /api/auth* then /api/v1/*, plus missing prompt=select_account on the better-auth Google provider) and their fixes (bypass app widened to /api*, prompt=select_account in commit ca48d18)
+
+---
+
 ## [2026-05-26] update | marietta-na session — hidden source maps + Sentry stub
 
 - Type: session (update of existing page)

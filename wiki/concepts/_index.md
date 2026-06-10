@@ -39,6 +39,7 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 
 ## Project Operations
 
+- [[Cloudflare Access Breaks Session-Based PWA Logins]] — why a better-auth OAuth app behind Cloudflare Access can't log users in until /api* is bypassed; edge-vs-app debugging via anonymous curl (developing)
 - [[Founder-Hours Tracking Routine]] — scheduled remote agent that adds weekly draft rows to a project's founder-hours log; first instance is bitstub, runs Mondays 13:00 UTC (developing)
 
 ---

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-26T17:00:00
+updated: 2026-06-10
 tags:
   - meta
   - hot-cache
@@ -19,6 +19,8 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
+
+2026-06-10: Cross-project save from marietta-na — new concept page [[Cloudflare Access Breaks Session-Based PWA Logins]]. Google login on the pre-launch host `mariettana.digitalseraph.com` failed because the host sits behind Cloudflare Access (Zero Trust) AND the app has its own better-auth OAuth login; the two layers collide. Three root causes, each found by `curl`-ing the prod endpoint and reading whether it 302s to `cloudflareaccess.com` (edge) or returns a Worker response: (1) Access gated `/api/auth/*` so `POST /api/auth/sign-in/social` bounced before any Google redirect → "Google sign-in failed"; fixed with a more-specific bypass Access app. (2) better-auth Google provider had no `prompt`, so Google silently reused the browser's active gmail session → invite-gate threw `?error=invite_code_required`; fixed with `prompt: "select_account"` (commit `ca48d18`). (3) Access still gated `/api/v1/*`, so the post-login session check `GET /api/v1/me` bounced and the SPA (booted from PWA cache, no live Access JWT) showed "Sign in" despite a valid session; fixed by widening the bypass to `/api*`. General lesson: a session-based SPA/PWA behind Cloudflare Access does not compose unless the API path is bypassed — gate the HTML shell with Access, let the app's own auth protect the API. Gotchas: Access app updates use PUT not PATCH (PATCH → 10405); the Cloudflare MCP token is read-only for Access (writes → 10000); most-specific path wins for carve-outs.
 
 2026-05-26 (later): Third closeout — hidden source maps + Sentry uploader stub. `vite.config.ts` `build.sourcemap: "hidden"` so `.map` files exist on disk but bundles carry no `sourceMappingURL` pragma (browsers don't auto-fetch). `frontend/scripts/upload-sourcemaps.mjs` shells out to `@sentry/cli@^2 releases files <sha> upload-sourcemaps dist --url-prefix "~/assets" --validate` when `SENTRY_AUTH_TOKEN`/`ORG`/`PROJECT` are all set; logs `skipped` + exits 0 otherwise so the deploy pipeline can chain it from day one. Either branch then strips `.map` from `dist/` so the Worker never serves them (`SOURCEMAPS_DELETE=0` keeps them for local `wrangler dev`). Verified locally: 96 maps emitted, no pragma in JS, skip-and-strip clean, bundle policy unchanged at 63 chunks / 1639 KB. Master `6bcf27d`. Three previously-open backlog items closed today via the same pattern — build the engineering half now, plug in account/DSN/spec when it lands. See [[2026-05-26-marietta-na-storybook-visual-regression-session]].
 
